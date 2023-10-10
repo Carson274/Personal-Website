@@ -1,13 +1,32 @@
 body{
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 h1{
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: "Nunito", sans-serif;
+    border-bottom-style: solid;
+    
 }
 h2{
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: "Nunito", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: white wavy underline;
+    font-size: 18px;
 }
 p{
-    background-color: gray;
-    color: white;
+
+    /* Font attributes. */
+    background-color: rgb(180, 180, 180);
+    color: rgb(0, 0, 0);
+    font-family: "Nunito", sans-serif;
+
+    /* Border attributes. */
+    border-style: solid;
+    border-width: 2px;
+    border-color: brown;
+    border-radius: 5px;
+    padding: 8px;
+
 }
