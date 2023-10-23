@@ -41,7 +41,7 @@
     
     <p>Here's a story map I made all about the impacts of pizza.</p>
     <a href="https://arcg.is/10v5zu0" target=_blank title="Check this out!">
-    <img src="/Personal-Website/images/pizza_story_map.PNG" height="300" alt="This is a picture of the cover of my story map." title="The Environmental Impact of Pizza" style="border-radius: 25px;">
+    <img src="/images/pizza_story_map.PNG" height="300" alt="This is a picture of the cover of my story map." title="The Environmental Impact of Pizza" style="border-radius: 25px;">
     </a>
     <p>Mmmmm yummy</p>
     
@@ -49,10 +49,17 @@
 
     <h2>Take a look at my favorite anime!</h2>
 
-    <img src="/Personal-Website/images/your_name.jpg" height="200" alt="This is a picture from the animated movie'Your Name'" title="Your Name">
+    <img src="/images/your_name.jpg" height="200" alt="This is a picture from the animated movie'Your Name'" title="Your Name">
     
-    <p>Bruh button</p>
-    <audio controls loop src="/Personal-Website/audios/bruh.mp3">
+    <button id="myButton">Bruh Button</button>
+    <audio id="myAudio" src="/audios/bruh.mp3" preload="auto"></audio>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function() {
+            let audioElement = document.getElementById("myAudio");
+            audioElement.play();
+        });
+    </script>
 
 </body>
 
