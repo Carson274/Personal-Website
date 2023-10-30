@@ -9,9 +9,6 @@
     <!--Linking html file with css file.-->
     <link rel="stylesheet" href="style.css">
 
-    <!--Font links.-->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-
     <!--Meta tags.-->
     <meta charset="UTF-8">
     <meta name="description" content="My personal website.">
@@ -23,44 +20,27 @@
 
 </head>
 <body>
-    <h1>This is my website</h1>
+    <div class="main-container">
+        <header>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="about.html" target = "_self">About</a></li>
+                    <li><a href="projects.html" target = "_self">Projects</a></li>
+                    <li><a href="contact.html" target = "_self">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <hr>
-    
-    <h2>Hi! My name is Carson.</h2>
-    
-    <br>
-    
-    <a href="about.html" target="_self">
-        About
-    </a>
-    
-    <br>
-    
-    <h3>I like pizza!</h3>
-    
-    <p>Here's a story map I made all about the impacts of pizza.</p>
-    <a href="https://arcg.is/10v5zu0" target=_blank title="Check this out!">
-    <img src="/images/pizza_story_map.PNG" height="300" alt="This is a picture of the cover of my story map." title="The Environmental Impact of Pizza" style="border-radius: 25px;">
-    </a>
-    <p>Mmmmm yummy</p>
-    
-    <br>
+        <div class="fixed-image"></div>
+        <div class="blur-overlay"></div>
+        <div class="centered-text">
+            <h1>HELLO !</h1>
+        </div>
+        <div class="lower-container">
+            <!-- Add any other content you want here. -->
+        </div>
 
-    <h2>Take a look at my favorite anime!</h2>
-
-    <img src="/images/your_name.jpg" height="200" alt="This is a picture from the animated movie'Your Name'" title="Your Name">
-    
-    <button id="myButton">Bruh Button</button>
-    <audio id="myAudio" src="/audios/bruh.mp3" preload="auto"></audio>
-
-    <script>
-        document.getElementById("myButton").addEventListener("click", function() {
-            let audioElement = document.getElementById("myAudio");
-            audioElement.play();
-        });
-    </script>
-
+    </div>
 </body>
 
 </html>
