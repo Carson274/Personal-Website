@@ -1,32 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById('myPieChart').getContext('2d');
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Major Related', 'Baccalaureate Core', 'Electives'],
-            datasets: [{
-                data: [1,1,1],
-                backgroundColor: ['#FF6384','#36A2EB','#FFCE56'],
-                borderColor: '#d9bda3',
-                borderWidth: 4,
-                hoverBorderColor: ['#FF6384','#36A2EB','#FFCE56'],
-                hoverBorderWidth: 8
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                tooltip: {
-                    enabled: false
-                },
-                legend: {
-                    display: false
-                }
-            }
-        }
-    });
-});
+import c3 from "c3"
 
-function slideLeft() {
-    document.getElementById("myPieChart").style.color = "red";
-}
+console.log("Connected.");
+
+// ! - tells typescript that the variable is not null
+// <HTMLUListElement> - tells the function to return the UL type
+const major_related = document.querySelector<HTMLUListElement>("#major-related")!;
+const baccalaureate = document.querySelector<HTMLUListElement>("#baccalaureate")!;
+const electives = document.querySelector<HTMLUListElement>("#electives")!;
+
+major_related.style.display = "none";
+baccalaureate.style.display = "none";
+electives.style.display = "none";
+
+c3.generate({
+    bindto: '#chart',
+    data: {
+        columns: [
+            ['Major Related', 12],
+            ['Baccalaureate', 5],
+            ['Electives', 4],
+        ],
+        type: 'donut',
+        onclick: function(d, i) { console.log("onclick", d, i) }
+    },
+    donut: {
+        width: 200,
+        padAngle: 0.05
+    }
+});

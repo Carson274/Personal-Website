@@ -94,20 +94,25 @@ header {
 .lower-container-1 hr {
     width: 40%;
     height: 4px;
-    margin-top: -10px;
     border: none;
     background-color: white;
     border-radius: 20px;
+    margin-bottom: 40px;
 }
 
 .achievement-unlocked {
     
 }
 
-#myPieChart {
-    cursor: pointer;
-    max-width: 450px;
-    max-height: 450px;
-    margin: 20px auto;
-    margin-top: 80px;
+div .chart-container {
+    display: flex;
+    justify-content: center;
+}
+
+div#chart {
+    height: 500px;
+}
+
+div .lower-container-1 img {
+    width: 100px;
 }
