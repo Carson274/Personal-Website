@@ -77,7 +77,7 @@ header {
 }
 
 .lower-container-1 {
-    height: 800px;
+    height: 900px;
     background: #d9bda3;
     gap: 20px;
 }
@@ -104,15 +104,58 @@ header {
     
 }
 
-div .chart-container {
+.chart-container {
     display: flex;
     justify-content: center;
 }
 
-div#chart {
-    height: 500px;
+.course-lists {
+    width: 0px;
+    transition: all 2s ease-out;
 }
 
-div .lower-container-1 img {
-    width: 100px;
+.chart-container ul {
+    width: 30%;
+}
+.fade-in {
+    animation: fade-in 1s ease-in-out 0s;
+}
+
+/* class not in html, only for animation */
+.fade-out {
+    animation: fade-out 0.5s ease-in-out 0s;
+    animation-fill-mode: forwards;
+}
+
+/* animations for fading in and out course lists */
+@keyframes fade-in {
+    to { opacity: 1 }
+    from { opacity: 0 }
+}
+@keyframes fade-out {
+    to { opacity: 0 }
+    from { opacity: 1 }
+}
+
+#chart {
+    height: 600px;
+    width: 600px;
+}
+
+#beaver-image {
+    position: absolute;
+    z-index: 99;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.rotate {
+    animation: rotate 1.5s ease-in-out;
+}
+
+@keyframes rotate {
+    to { rotate: 360deg }
+    from { rotate: 0deg }
 }
