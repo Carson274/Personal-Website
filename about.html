@@ -7,7 +7,7 @@
     <title>Carson's Website - About</title>
 
     <!--Linking html file with css file.-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
 
     <!--Meta tags.-->
     <meta charset="UTF-8">
@@ -17,6 +17,9 @@
 
     <!--Scales with mobile device.-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Include pie charts.-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
@@ -47,14 +50,15 @@
         </section>
 
         <section class="lower-container-1">
+            <section class="achievement-unlocked">
+            <h1>Education</h1>
+            <hr>
+            <div class="result"></div>
+            <canvas id="myPieChart" onclick="slideLeft()"></canvas>
 
         </section>
-
-        <section class="lower-container-2">
-
-        </section>
-
     </div>
+    <script src="about.js"></script>
 </body>
 
 </html>
