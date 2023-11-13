@@ -7,12 +7,14 @@ console.log("Connected.");
 const major_related = document.querySelector<HTMLUListElement>("#major-related")!;
 const baccalaureate = document.querySelector<HTMLUListElement>("#baccalaureate")!;
 const electives = document.querySelector<HTMLUListElement>("#electives")!;
+const honors = document.querySelector<HTMLUListElement>("#honors")!;
 const beaver_image = document.querySelector("#beaver-image")!;
 const course_lists = document.querySelector<HTMLDivElement>("#course-lists")!;
 
 major_related.style.display = "none";
 baccalaureate.style.display = "none";
 electives.style.display = "none";
+honors.style.display = "none";
 
 let previous_clicked_on;
 let running_timeout = false;
@@ -21,16 +23,17 @@ c3.generate({
     bindto: '#chart',
     data: {
         columns: [
-            ['Major Related', 12],
+            ['Major Related', 11],
             ['Baccalaureate', 5],
             ['Electives', 4],
+            ['Honors', 4]
         ],
         type: 'donut',
         onclick: function(d, i) { 
             console.log("onclick", d, i);
 
             // cancel function if user clicks on the same button twice
-            if(previous_clicked_on == [major_related, baccalaureate, electives][d.index] || running_timeout) {
+            if(previous_clicked_on == [major_related, baccalaureate, electives, honors][d.index] || running_timeout) {
                 return;
             }
 
@@ -55,11 +58,11 @@ c3.generate({
                 running_timeout = false;
 
                 // getting the list at the index clicked on, which is associated with the variable d
-                previous_clicked_on = [major_related, baccalaureate, electives][d.index];
+                previous_clicked_on = [major_related, baccalaureate, electives, honors][d.index];
                 previous_clicked_on.classList.add("fade-in");
                 previous_clicked_on.classList.remove("fade-out");
                 previous_clicked_on.style.display = "block";  
-            }, previous_clicked_on? 500: 0)    
+            }, previous_clicked_on? 500: 1500) // waits 1.5 seconds if nothing is displayed, otherwise waits 0.5 seconds
             
             // remove rotate class after 1 second
             beaver_image.classList.add("rotate");
@@ -71,17 +74,24 @@ c3.generate({
         }
     },
     donut: {
+        title: '19 Total Classes Taken',
         width: 250,
         padAngle: 0.05,
         label: {
-            show: false
+            show: true,
+            format: function (value, ratio, id) {
+                return id; // + ": " + value; // display the actual value of the numbers on the chart
+            }
         }
     },
     legend: {
         show: false
     },
     color: {
-        pattern: ['red', 'orange', 'black']
+        pattern: ['#846C5F', '#897668', '#A88F81', '#BBA89A']
+    },
+    tooltip: {
+        show: false
     }
 });
 
