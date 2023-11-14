@@ -76,6 +76,25 @@ header {
     text-decoration: none;
 }
 
+.lower-container-2 {
+    height: 500px;
+    background: #d9bda3;
+    gap: 20px;
+}
+
+.lower-container-2 #name-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+.carson-secrest-white {
+    cursor: pointer;
+}
+.computer-science-brown {
+    cursor: pointer;
+}
+
 .lower-container-1 {
     height: 900px;
     background: #d9bda3;
@@ -85,19 +104,19 @@ header {
 .lower-container-1 h1 {
     padding-top: 60px;
     margin-bottom: 20px;
-    font-size: 70px;
+    font-size: 90px;
     text-align: center;
     color: white;
     margin-top: 0px;
 }
 
 .lower-container-1 hr {
-    width: 27%;
+    width: 40%;
     height: 4px;
     border: none;
     background-color: white;
     border-radius: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .chart-container {
@@ -106,12 +125,24 @@ header {
 }
 
 .course-lists {
+    display: inline;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 0px;
     transition: all 1.5s cubic-bezier(0.61, 1, 0.88, 1);
 }
 
+.course-lists h2 {
+    width: 75%;
+    margin: 0;
+    font-size: 60px;
+    color: white;
+    text-align: center;
+}
+
 .chart-container ul {
-    width: 90%;
+    width: 100%;
     height: 560px;
 }
 
@@ -138,11 +169,12 @@ header {
 #chart {
     height: 600px;
     width: 600px;
+    margin-top: 10px;
 }
 
 /* chart fonts */
 #chart text {
-    font-size: 20px;
+    font-size: 15px;
 }
 td.name {
     font-size: 30px;
@@ -151,7 +183,7 @@ td.name {
 #beaver-image {
     position: absolute;
     z-index: 99;
-    width: 250px;
+    width: 40%;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -311,7 +343,7 @@ z-index: 100;
 }
 19% {
     opacity: 1;
-    transform: scale3d(2,2,2);
+    transform: scale3d(1,1,1);
 }
 23% {
     opacity: 0;

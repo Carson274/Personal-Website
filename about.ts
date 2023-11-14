@@ -2,6 +2,41 @@ import c3 from "c3"
 
 console.log("Connected.");
 
+/****************************************************************************************
+ * Name logo section stuff
+****************************************************************************************/
+
+const carson_secrest_white = document.querySelector<HTMLImageElement>("#carson-secrest-white")!;
+const computer_science_brown = document.querySelector<HTMLImageElement>("#computer-science-brown")!;
+
+computer_science_brown.style.display = "none";
+
+let white_shown = true;
+let brown_shown = false;
+
+// function to toggle the images between the white and brown versions
+function toggleImages() {
+    if(white_shown){
+        carson_secrest_white.style.display = "none";
+        computer_science_brown.style.display = "block";
+        white_shown = false;
+        brown_shown = true;
+    }else if(brown_shown){
+        computer_science_brown.style.display = "none";
+        carson_secrest_white.style.display = "block";
+        brown_shown = false;
+        white_shown = true;
+    }
+}
+
+// checking to see if either of the logos are clicked on
+carson_secrest_white.addEventListener("click", toggleImages);
+computer_science_brown.addEventListener("click", toggleImages);
+
+/****************************************************************************************
+ * Chart section stuff
+****************************************************************************************/
+
 // ! - tells typescript that the variable is not null
 // <HTMLUListElement> - tells the function to return the UL type
 const major_related = document.querySelector<HTMLUListElement>("#major-related")!;
@@ -11,6 +46,7 @@ const honors = document.querySelector<HTMLUListElement>("#honors")!;
 const beaver_image = document.querySelector("#beaver-image")!;
 const course_lists = document.querySelector<HTMLDivElement>("#course-lists")!;
 
+// setting all of the lists and list headers to be invisible to begin with
 major_related.style.display = "none";
 baccalaureate.style.display = "none";
 electives.style.display = "none";
@@ -61,7 +97,7 @@ c3.generate({
                 previous_clicked_on = [major_related, baccalaureate, electives, honors][d.index];
                 previous_clicked_on.classList.add("fade-in");
                 previous_clicked_on.classList.remove("fade-out");
-                previous_clicked_on.style.display = "block";  
+                previous_clicked_on.style.display = "block"; 
             }, previous_clicked_on? 500: 1500) // waits 1.5 seconds if nothing is displayed, otherwise waits 0.5 seconds
             
             // remove rotate class after 1 second
@@ -103,10 +139,6 @@ c3.generate({
 // image.style.top = bounds.y + "";
 // image.style.left = bounds.x + "";
 
-const education_header = document.querySelector<HTMLDivElement>("#education-header")!;
-
-education_header.style.opacity = "0";
-
 const achievement = () => {
     document.querySelector('.achiev_name').innerText = "Academic Weapon"
     document.querySelector('.unlocked').innerText = 'Achievement Unlocked'
@@ -121,14 +153,22 @@ const achievement = () => {
     }, 12000)
 }
 
+// set education header and underline to be invisible
+const education_header = document.querySelector<HTMLDivElement>("#education-header")!;
+const education_underline = document.querySelector<HTMLDivElement>("#education-underline")!;
+education_header.style.opacity = "0";
+education_underline.style.opacity = "0";
+
+// after the achievement has played, fade in the education header
 let achievement_played = false;
 document.addEventListener('scroll', () => {
     if(!achievement_played){
-        if(window.scrollY > 100){
+        if(window.scrollY > 800){
             achievement_played = true;
             achievement();
             setTimeout(() => {
                 education_header.style.opacity = "1";
+                education_underline.style.opacity = "1";
             }, 4000)
         }
     }
