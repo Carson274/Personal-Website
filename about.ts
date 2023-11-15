@@ -34,6 +34,21 @@ carson_secrest_white.addEventListener("click", toggleImages);
 computer_science_brown.addEventListener("click", toggleImages);
 
 /****************************************************************************************
+ * Image carousel description stuff
+****************************************************************************************/
+
+const messages = ["I...", "and...", "are..."];
+let current_message_index = 0;
+
+function changeMessage() {
+    const h3 = document.querySelector<HTMLHeadingElement>("#my-images-container h3")!;
+    h3.textContent = messages[current_message_index];
+    current_message_index = (current_message_index + 1) % messages.length;
+}
+
+setInterval(changeMessage, 2000);
+
+/****************************************************************************************
  * Chart section stuff
 ****************************************************************************************/
 
@@ -131,14 +146,6 @@ c3.generate({
     }
 });
 
-// const chart_element = document.querySelector("#chart")!;
-// const bounds = chart_element.getBoundingClientRect();
-// const image = document.querySelector<HTMLImageElement>("#beaver-image")!;
-
-// // +"" auto converts to string
-// image.style.top = bounds.y + "";
-// image.style.left = bounds.x + "";
-
 const achievement = () => {
     document.querySelector('.achiev_name').innerText = "Academic Weapon"
     document.querySelector('.unlocked').innerText = 'Achievement Unlocked'
@@ -163,7 +170,7 @@ education_underline.style.opacity = "0";
 let achievement_played = false;
 document.addEventListener('scroll', () => {
     if(!achievement_played){
-        if(window.scrollY > 800){
+        if(window.scrollY > 1200){
             achievement_played = true;
             achievement();
             setTimeout(() => {
