@@ -3,6 +3,9 @@
 body {
     margin: 0;
     font-family: "Nunito", sans-serif;
+
+    /* hide the image carousel overflow */
+    overflow-x: hidden;
 }
 
 .main-container {
@@ -87,6 +90,7 @@ header {
     justify-content: center;
     align-items: center;
     height: 35%;
+    width: 100%
 }
 #carson-secrest-white {
     cursor: pointer;
@@ -100,6 +104,7 @@ header {
     justify-content: center;
     align-items: center;
     height: 65%;
+    width: 90000px;
 }
 #images-description {
     height: 20%;
@@ -137,12 +142,12 @@ header {
     animation-delay: 0s;
 }
 #image-3 {
-    position: absolute;
+    position: relative;
     animation: carousel linear 20s infinite;
     animation-delay: 0s;
 }
 #image-4 {
-    position: absolute;
+    position: relative;
     animation: carousel linear 20s infinite;
     animation-delay: 0s;
 }
