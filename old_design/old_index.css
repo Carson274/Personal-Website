@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    flex: block;
+    background-color: #D9BDA3;
+}
+
+/* .hidden-container {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    background: #d9bda3;
+    transform: translateX(-50%);
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    z-index: 3;
+} */
+
+.main-container {
+    justify-content: center;
+    height: 1000vh;
+}
+
+.title {
+    height: 60vh;
+    font-size: 9vh;
+    text-align: center;
+    color: #846C5F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.9;
+}
+.image-carousel-description {
+    height: 1vh;
+    font-size: 8vh;
+    text-align: center;
+    color: #846C5F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-carousel-description #and-i-love {
+    position: absolute;
+    right: 50%;
+}
+.image-carousel-description #things-i-love {
+    position: absolute;
+    left: 50%;
+}
+#things-i-love li {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #846C5F;
+    width: 0;
+    animation: typewriter 7s steps(40, end) 0s infinite, 
+               blink-caret .75s step-end infinite;
+}
+@keyframes typewriter {
+    0%, 100% { width: 0; }
+    30%, 70% { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #846C5F; }
+}
+
+nav {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #c8b09e;
+    width: 100%;
+}
+
+li, a{
+    font-weight: 500;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.nav_links li {
+    display: inline;
+    padding: 0px 20px;
+}
+
+.fixed-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    z-index: -2;
+    background: url('/images/beach.jpg') no-repeat center center;
+    background-size: cover;
+    
+}
+
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5px);
+    z-index: -1;
+}
+
+.centered-text {
+    position: relative;
+    text-align: center;
+    z-index: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 1000;
+    font-size: 70px;
+    color: #846C5F;
+    text-decoration: none;
+}
+
+.lower-container-1 {
+    height: 800px;
+    background: #d9bda3;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.text-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    height: 600px;
+    margin-left: 60px;
+}
+
+.lower-container-1 h2 {
+    font-size: 70px;
+    margin: 0;
+    padding: 20px;
+    color: #846C5F;
+    text-align: center;
+}
+
+.text-box {
+    width: 80%;
+}
+
+.text-box p {
+    font-size: 30px;
+    margin: 20px;
+    padding: 40px;
+    padding-top: 30px;
+    color: #ffffff;
+    background-color: #846C5F;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+.lower-container-1 img {
+    flex: 1;
+    height: 700px;
+    margin: 100px 100px;
+    margin-left: 30px;
+    margin-right: 200px;
+    display: inline-block;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+.lower-container-2 {
+    height: 0px;
+    background: #d9bda3;
+    display: flex;
+    align-content: center;
+    gap: 20px;
+}
