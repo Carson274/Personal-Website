@@ -22,14 +22,9 @@ const introduction_screen = document.querySelector<HTMLDivElement>(".introductio
 const interests_screen = document.querySelector<HTMLDivElement>(".interests-screen")!;
 const personal_page = document.querySelector<HTMLDivElement>(".personal-page")!;
 const professional_page = document.querySelector<HTMLDivElement>(".professional-page")!;
-const education_header = document.querySelector<HTMLDivElement>(".education-header")!;
 
 window.onload = () => {
   logo_1.style.animation = 'logo-slide-left 1.5s 0.4s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
-  achievement();
-  setTimeout(() => {
-    education_header.style.opacity = '1';
-  }, 4000);
 
   setTimeout(() => {
     secrest.style.animation = 'text-slide-up 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
@@ -144,7 +139,9 @@ interests.forEach((interest, index) => {
 });
 
 
-//////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+const education_header = document.querySelector<HTMLDivElement>(".education-header")!;
+
 const achievement = () => {
     (document.querySelector('.achiev_name') as HTMLDivElement).innerText = "Academic Weapon";
     (document.querySelector('.unlocked') as HTMLDivElement).innerText = 'Achievement Unlocked';
@@ -160,52 +157,92 @@ const achievement = () => {
     }, 12000);
 }
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      achievement();
+      setTimeout(() => {
+        education_header.style.opacity = '1';
+      }, 4000);
+
+      observer.unobserve(education_header);
+    }
+  });
+}, { threshold: 1 });
+
+observer.observe(education_header);
 
 
-
-
-const course_title_major_related = document.querySelector<HTMLDivElement>(".course-title-major-related")!;
-const course_list_major_related = document.querySelector<HTMLDivElement>(".course-list-major-related")!;
-const course_title_baccalaureate = document.querySelector<HTMLDivElement>(".course-title-baccalaureate")!;
-const course_list_baccalaureate = document.querySelector<HTMLDivElement>(".course-list-baccalaureate")!;
-const course_title_electives = document.querySelector<HTMLDivElement>(".course-title-electives")!;
-const course_list_electives = document.querySelector<HTMLDivElement>(".course-list-electives")!;
-const course_title_honors = document.querySelector<HTMLDivElement>(".course-title-honors")!;
-const course_list_honors = document.querySelector<HTMLDivElement>(".course-list-honors")!;
+const course_title_computer_science = document.querySelector<HTMLDivElement>(".course-title-computer-science")!;
+const course_list_computer_science = document.querySelector<HTMLDivElement>(".course-list-computer-science")!;
+const course_title_math = document.querySelector<HTMLDivElement>(".course-title-math")!;
+const course_list_math = document.querySelector<HTMLDivElement>(".course-list-math")!;
+const course_title_engineering = document.querySelector<HTMLDivElement>(".course-title-engineering")!;
+const course_list_engineering = document.querySelector<HTMLDivElement>(".course-list-engineering")!;
+const course_title_other = document.querySelector<HTMLDivElement>(".course-title-other")!;
+const course_list_other = document.querySelector<HTMLDivElement>(".course-list-other")!;
 const beaver_image = document.querySelector<HTMLImageElement>(".beaver-image")!;
 const chart_container = document.querySelector<HTMLDivElement>(".chart-container")!;
 const course_div = document.querySelector<HTMLDivElement>(".course-div")!;
 
-course_title_baccalaureate.style.display = "none";
-course_list_baccalaureate.style.display = "none";
-course_title_electives.style.display = "none";
-course_list_electives.style.display = "none";
-course_title_honors.style.display = "none";
-course_list_honors.style.display = "none";
+course_title_math.style.display = "none";
+course_list_math.style.display = "none";
+course_title_engineering.style.display = "none";
+course_list_engineering.style.display = "none";
+course_title_other.style.display = "none";
+course_list_other.style.display = "none";
+course_title_math.style.opacity = "0";
+course_list_math.style.opacity = "0";
+course_title_engineering.style.opacity = "0";
+course_list_engineering.style.opacity = "0";
+course_title_other.style.opacity = "0";
+course_list_other.style.opacity = "0";
 
-let previous_clicked_on;
+let previous_title = course_title_computer_science;
+let previous_list = course_list_computer_science;
+let next_title;
+let next_list;
 let running_timeout = false;
 
 let chart = c3.generate({
     bindto: '.chart',
     data: {
         columns: [
-            ['Major Related', 11],
-            ['Baccalaureate', 5],
-            ['Electives', 4],
-            ['Honors', 4]
+            ['Computer Science', 11],
+            ['Math', 5],
+            ['Engineering', 4],
+            ['Other', 4]
         ],
         type: 'donut',
         onclick: function(d, i) { 
           console.log("onclick", d, i);
 
-          if(!previous_clicked_on) {
-            chart_container.style.animation = 'chart-slide-left 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+          next_title = [course_title_computer_science, course_title_math, course_title_engineering, course_title_other][d.index];
+          next_list = [course_list_computer_science, course_list_math, course_list_engineering, course_list_other][d.index];
+
+          if(previous_title === next_title) {
+            return;
           }
 
-          previous_clicked_on = [course_list_major_related, course_list_baccalaureate, course_list_electives, course_list_honors][d.index];
+          previous_title.style.animation = 'fade-out 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+          previous_list.style.animation = 'fade-out 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
 
-          console.log(previous_clicked_on);
+          setTimeout(() => {
+            previous_title.style.display = 'none';
+            previous_list.style.display = 'none';
+            next_title.style.display = 'block';
+            next_list.style.display = 'block';
+            next_title.style.animation = 'fade-in 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+            next_list.style.animation = 'fade-in 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+            previous_title = next_title;
+            previous_list = next_list;
+            
+          }, 1000);
+
+          console.log("Previous title: ", previous_title);
+          console.log("Next title: ", next_title);
+          console.log("Previous list: ", previous_list);
+          console.log("Next list: ", next_list);
         }
     },
     size: {
@@ -232,18 +269,21 @@ let chart = c3.generate({
     }
 });
 
+
+
 const resizeObserver = new ResizeObserver(entries => {
   for (let entry of entries) {
     if (entry.target === document.body) {
       if (window.matchMedia("(max-width: 1200px)").matches) {
         chart.resize({height:550});
+        chart.internal.config.donut_width = 200;
       } else {
         chart.resize({height:600});
+        chart.internal.config.donut_width = 240;
       }
+      chart.flush();
     }
   }
 });
 
 resizeObserver.observe(document.body);
-
-
