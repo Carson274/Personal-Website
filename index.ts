@@ -1,4 +1,5 @@
 import c3 from "c3"
+const { BASE_URL } = import.meta.env;
 
 const body = document.body;
 const logo_1 = document.querySelector<HTMLImageElement>('.logo-1')!;
