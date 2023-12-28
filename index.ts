@@ -1,3 +1,5 @@
+import c3 from "c3"
+
 const body = document.body;
 const logo_1 = document.querySelector<HTMLImageElement>('.logo-1')!;
 const logo_2 = document.querySelector<HTMLImageElement>('.logo-2')!;
@@ -8,7 +10,7 @@ const computer = document.querySelector<HTMLHeadingElement>('#computer')!;
 const brown_div = document.querySelector<HTMLDivElement>("#brown-div")!;
 const beige_div = document.querySelector<HTMLDivElement>("#beige-div")!;
 const light_background_color = 'F0ECE9';
-const dark_background_color = '4e3a3a';
+const dark_background_color = '241C1C';
 const above_secrest = document.querySelector<HTMLDivElement>("#above-secrest")!;
 const above_carson = document.querySelector<HTMLDivElement>("#above-carson")!;
 const above_science = document.querySelector<HTMLDivElement>("#above-science")!;
@@ -26,8 +28,8 @@ window.onload = () => {
   logo_1.style.animation = 'logo-slide-left 1.5s 0.4s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
   achievement();
   setTimeout(() => {
-    education_header.style.display = 'block';
-  }, 4000)
+    education_header.style.opacity = '1';
+  }, 4000);
 
   setTimeout(() => {
     secrest.style.animation = 'text-slide-up 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
@@ -67,7 +69,7 @@ function next_logo(last_logo, next_logo, last_upper_text, last_lower_text, next_
     upper_welcome_div.style.backgroundColor = `#${background_color}`;
     lower_welcome_div.style.backgroundColor = `#${background_color}`;
     introduction_screen.style.backgroundColor = `#${background_color}`;
-    interests_screen.style.backgroundColor = `#${background_color}`;
+    // interests_screen.style.backgroundColor = `#${background_color}`;
     last_logo.style.animation = 'none';
     last_logo.style.transform = 'translateX(0)';
     last_logo.style.display = 'none';
@@ -144,15 +146,104 @@ interests.forEach((interest, index) => {
 
 //////////////////////////////////////////////////
 const achievement = () => {
-    document.querySelector('.achiev_name').innerText = "Academic Weapon"
-    document.querySelector('.unlocked').innerText = 'Achievement Unlocked'
+    (document.querySelector('.achiev_name') as HTMLDivElement).innerText = "Academic Weapon";
+    (document.querySelector('.unlocked') as HTMLDivElement).innerText = 'Achievement Unlocked';
 
-    document.querySelector('.circle').classList.add('circle_animate')
-    document.querySelector('.banner').classList.add('banner-animate')
-    document.querySelector('.achieve_disp').classList.add('achieve_disp_animate')
+    (document.querySelector('.circle') as HTMLDivElement).classList.add('circle_animate');
+    (document.querySelector('.banner') as HTMLDivElement).classList.add('banner-animate');
+    (document.querySelector('.achieve_disp') as HTMLDivElement).classList.add('achieve_disp_animate');
+
     setTimeout(() => {
-        document.querySelector('.circle').classList.remove('circle_animate')
-        document.querySelector('.banner').classList.remove('banner-animate')
-        document.querySelector('.achieve_disp').classList.remove('achieve_disp_animate')
-    }, 12000)
+        (document.querySelector('.circle') as HTMLDivElement).classList.remove('circle_animate');
+        (document.querySelector('.banner') as HTMLDivElement).classList.remove('banner-animate');
+        (document.querySelector('.achieve_disp') as HTMLDivElement).classList.remove('achieve_disp_animate');
+    }, 12000);
 }
+
+
+
+
+
+const course_title_major_related = document.querySelector<HTMLDivElement>(".course-title-major-related")!;
+const course_list_major_related = document.querySelector<HTMLDivElement>(".course-list-major-related")!;
+const course_title_baccalaureate = document.querySelector<HTMLDivElement>(".course-title-baccalaureate")!;
+const course_list_baccalaureate = document.querySelector<HTMLDivElement>(".course-list-baccalaureate")!;
+const course_title_electives = document.querySelector<HTMLDivElement>(".course-title-electives")!;
+const course_list_electives = document.querySelector<HTMLDivElement>(".course-list-electives")!;
+const course_title_honors = document.querySelector<HTMLDivElement>(".course-title-honors")!;
+const course_list_honors = document.querySelector<HTMLDivElement>(".course-list-honors")!;
+const beaver_image = document.querySelector<HTMLImageElement>(".beaver-image")!;
+const chart_container = document.querySelector<HTMLDivElement>(".chart-container")!;
+const course_div = document.querySelector<HTMLDivElement>(".course-div")!;
+
+course_title_baccalaureate.style.display = "none";
+course_list_baccalaureate.style.display = "none";
+course_title_electives.style.display = "none";
+course_list_electives.style.display = "none";
+course_title_honors.style.display = "none";
+course_list_honors.style.display = "none";
+
+let previous_clicked_on;
+let running_timeout = false;
+
+let chart = c3.generate({
+    bindto: '.chart',
+    data: {
+        columns: [
+            ['Major Related', 11],
+            ['Baccalaureate', 5],
+            ['Electives', 4],
+            ['Honors', 4]
+        ],
+        type: 'donut',
+        onclick: function(d, i) { 
+          console.log("onclick", d, i);
+
+          if(!previous_clicked_on) {
+            chart_container.style.animation = 'chart-slide-left 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+          }
+
+          previous_clicked_on = [course_list_major_related, course_list_baccalaureate, course_list_electives, course_list_honors][d.index];
+
+          console.log(previous_clicked_on);
+        }
+    },
+    size: {
+      height: 600
+    },
+    donut: {
+        padAngle: 0.05,
+        width: 240,
+        label: {
+            show: true,
+            format: function (value, ratio, id) {
+                return id; // + ": " + value; // display the actual value of the numbers on the chart
+            }
+        }
+    },
+    legend: {
+        show: false
+    },
+    color: {
+        pattern: ['#846C5F', '#897668', '#A88F81', '#BBA89A']
+    },
+    tooltip: {
+        show: false
+    }
+});
+
+const resizeObserver = new ResizeObserver(entries => {
+  for (let entry of entries) {
+    if (entry.target === document.body) {
+      if (window.matchMedia("(max-width: 1200px)").matches) {
+        chart.resize({height:550});
+      } else {
+        chart.resize({height:600});
+      }
+    }
+  }
+});
+
+resizeObserver.observe(document.body);
+
+
