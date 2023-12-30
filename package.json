@@ -14,5 +14,9 @@
   },
   "dependencies": {
     "c3": "^0.7.20"
-  }
+  },
+  "description": "My own personal website. Built from scratch with... * Languages: HTML, CSS, TypeScript * Libraries: C3.js",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
