@@ -190,6 +190,8 @@ const course_list_other = document.querySelector<HTMLDivElement>(".course-list-o
 const beaver_image = document.querySelector<HTMLImageElement>(".beaver-image")!;
 const chart_container = document.querySelector<HTMLDivElement>(".chart-container")!;
 const course_div = document.querySelector<HTMLDivElement>(".course-div")!;
+const course_title_cover = document.querySelector<HTMLDivElement>(".course-title-cover")!;
+const course_list_cover = document.querySelector<HTMLDivElement>(".course-list-cover")!;
 
 course_title_math.style.display = "none";
 course_list_math.style.display = "none";
@@ -197,15 +199,11 @@ course_title_engineering.style.display = "none";
 course_list_engineering.style.display = "none";
 course_title_other.style.display = "none";
 course_list_other.style.display = "none";
-course_title_math.style.opacity = "0";
-course_list_math.style.opacity = "0";
-course_title_engineering.style.opacity = "0";
-course_list_engineering.style.opacity = "0";
-course_title_other.style.opacity = "0";
-course_list_other.style.opacity = "0";
 
 let previous_title = course_title_computer_science;
 let previous_list = course_list_computer_science;
+previous_title.style.display = "block";
+previous_list.style.display = "block";
 let next_title;
 let next_list;
 let running_timeout = false;
@@ -230,20 +228,22 @@ let chart = c3.generate({
             return;
           }
 
-          previous_title.style.animation = 'fade-out 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
-          previous_list.style.animation = 'fade-out 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+          course_title_cover.style.animation = 'switch-course 1s cubic-bezier(0.19, 1, 0.22, 1) 0s 1 normal forwards running';
+          course_list_cover.style.animation = 'switch-course 1s cubic-bezier(0.19, 1, 0.22, 1) 0s 1 normal forwards running';
 
           setTimeout(() => {
+            setTimeout(() => {
+              course_title_cover.style.animation = 'none';
+              course_list_cover.style.animation = 'none';
+            }, 600);
             previous_title.style.display = 'none';
             previous_list.style.display = 'none';
             next_title.style.display = 'block';
             next_list.style.display = 'block';
-            next_title.style.animation = 'fade-in 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
-            next_list.style.animation = 'fade-in 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
             previous_title = next_title;
             previous_list = next_list;
             
-          }, 1000);
+          }, 400);
 
           console.log("Previous title: ", previous_title);
           console.log("Next title: ", next_title);
