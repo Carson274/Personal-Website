@@ -212,10 +212,10 @@ let chart = c3.generate({
     bindto: '.chart',
     data: {
         columns: [
-            ['Computer Science', 11],
+            ['Computer Science', 3],
             ['Math', 5],
-            ['Engineering', 4],
-            ['Other', 4]
+            ['Engineering', 3],
+            ['Other', 7]
         ],
         type: 'donut',
         onclick: function(d, i) { 
