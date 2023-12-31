@@ -19,6 +19,28 @@ body {
     height: 100vh;
 }
 
+.curved-text {
+    opacity: 0;
+}
+
+@keyframes curved-text-slide-right {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(20%);
+    }
+
+}
+
+.logo-container svg {
+    position: absolute;
+    top: -90px;
+    left: -50px;
+    z-index: 20;
+    pointer-events: none;
+}
+
 .background {
     position: absolute;
     width: 100%;

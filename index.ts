@@ -23,6 +23,7 @@ const introduction_screen = document.querySelector<HTMLDivElement>(".introductio
 const interests_screen = document.querySelector<HTMLDivElement>(".interests-screen")!;
 const personal_page = document.querySelector<HTMLDivElement>(".personal-page")!;
 const professional_page = document.querySelector<HTMLDivElement>(".professional-page")!;
+const curved_text = document.querySelector<HTMLDivElement>(".curved-text")!;
 
 window.onload = () => {
   logo_1.style.animation = 'logo-slide-left 1.5s 0.4s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
@@ -31,6 +32,10 @@ window.onload = () => {
     secrest.style.animation = 'text-slide-up 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
     carson.style.animation = 'text-slide-up 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
   }, 700);
+
+  setTimeout(() => {
+    curved_text.style.animation = 'fade-in 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+  }, 2000);
 }
 
 function move_background() {
@@ -54,6 +59,7 @@ function next_logo(last_logo, next_logo, last_upper_text, last_lower_text, next_
   last_logo.style.animation = 'logo-slide-right 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
   last_upper_text.style.animation = 'text-slide-down 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
   last_lower_text.style.animation = 'text-slide-down 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
+  curved_text.style.animation = 'curved-text-slide-right 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
   
   setTimeout(() => {
     last_s_above.style.display = 'none';
@@ -76,6 +82,7 @@ function next_logo(last_logo, next_logo, last_upper_text, last_lower_text, next_
     next_lower_text.style.display = 'block';
     last_page.style.display = 'none';
     next_page.style.display = 'block';
+    curved_text.style.display = 'none';
     
     setTimeout(() => {
       next_logo.style.animation = 'logo-slide-left 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) forwards';
