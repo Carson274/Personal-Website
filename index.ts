@@ -158,20 +158,18 @@ const achievement = () => {
     }, 12000);
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      achievement();
-      setTimeout(() => {
-        education_header.style.opacity = '1';
-      }, 4000);
-
-      observer.unobserve(education_header);
+let achievement_played = false;
+document.addEventListener('scroll', () => {
+    if(!achievement_played && getComputedStyle(professional_page).display !== 'none') {
+        if(window.scrollY > window.innerHeight / 2){
+            achievement_played = true;
+            achievement();
+            setTimeout(() => {
+                education_header.style.opacity = "1";
+            }, 4000);
+        }
     }
-  });
-}, { threshold: 1 });
-
-observer.observe(education_header);
+})
 
 
 const course_title_computer_science = document.querySelector<HTMLDivElement>(".course-title-computer-science")!;

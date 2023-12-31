@@ -452,7 +452,7 @@ transform: translateX(-100vw);
 
 .chart text {
     fill: white;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .beaver-image {
@@ -461,6 +461,7 @@ transform: translateX(-100vw);
     top: 50%;
     transform: translate(-50%, -50%);
     height: 100px;
+    display: hidden;
 }
 
 .course-div {
