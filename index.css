@@ -237,7 +237,6 @@ transform: translateX(-100vw);
     align-items: center;
     position: relative;
     width: 100%;
-    display: none;
 }
 
 .upper-welcome-div {
@@ -426,7 +425,7 @@ transform: translateX(-100vw);
     position: relative;
     width: 100%;
     color: #F0ECE9;
-    /* display: none; */
+    display: none;
 }
 
 /* SECTION 1: EDUCATION */
@@ -480,12 +479,22 @@ transform: translateX(-100vw);
 
 .beaver-image {
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    height: 100px;
-    display: hidden;
+    height: 10vw;
+    pointer-events: none;
 }
+
+@keyframes rotate-image {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 
 .course-div {
     flex: 1;

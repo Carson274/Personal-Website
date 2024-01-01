@@ -228,6 +228,8 @@ let chart = c3.generate({
             return;
           }
 
+          beaver_image.style.animation = 'rotate-image 1.5s ease-in-out';
+
           course_title_cover.style.animation = 'switch-course 1s cubic-bezier(0.19, 1, 0.22, 1) 0s 1 normal forwards running';
           course_list_cover.style.animation = 'switch-course 1s cubic-bezier(0.19, 1, 0.22, 1) 0s 1 normal forwards running';
 
@@ -235,6 +237,9 @@ let chart = c3.generate({
             setTimeout(() => {
               course_title_cover.style.animation = 'none';
               course_list_cover.style.animation = 'none';
+              setTimeout(() => {
+                beaver_image.style.animation = 'none';
+              }, 900);
             }, 600);
             previous_title.style.display = 'none';
             previous_list.style.display = 'none';
