@@ -1148,6 +1148,46 @@ transform: translateX(-100vw);
     text-align: center;
 }
 
+@keyframes project-scale-up {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes project-scale-down {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes github-scale-up {
+    0% {
+        transform: scale(1);
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(1.2);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes github-scale-down {
+    0% {
+        transform: scale(1.2);
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(1);
+        transform: translate(-50%, -50%);
+    }
+}
+
 .project-teaser h3 {
     font-size: 20px;
     margin: 0px;
@@ -1190,4 +1230,30 @@ transform: translateX(-100vw);
     .box {
         width: 100%;
     }
+}
+
+.fade-to-grey {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #1F1C1C;
+}
+
+.fade-to-red {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #2B0C0C;
+}
+
+.fade-to-orange {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #3E2E1F;
+}
+
+.fade-to-white {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #423737;
+
+}
+
+.fade-to-brown {
+    transition: background-color 1s ease-in-out;
+    background-color: #241C1C;
 }
