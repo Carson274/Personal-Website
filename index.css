@@ -1210,6 +1210,11 @@ transform: translateX(-100vw);
 }
 
 .project-icon {
+    margin: 5px;
+}
+
+.project-icon-image {
+    height: 40px;
 }
 
 .project-title h3 {
