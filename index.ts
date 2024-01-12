@@ -285,13 +285,15 @@ let chart = c3.generate({
 const resizeObserver = new ResizeObserver(entries => {
   for (let entry of entries) {
     if (entry.target === document.body) {
-      if (window.matchMedia("(max-width: 1200px)").matches) {
+      const vw = window.innerWidth;
+      const donutWidth = 230;
+      if (vw <= 600) {
         chart.resize({height:550});
-        chart.internal.config.donut_width = 200;
+        chart.internal.config.donut_width = 150;
       } else {
-        chart.resize({height:600});
-        chart.internal.config.donut_width = 240;
-      }
+        chart.resize({height:550});
+        chart.internal.config.donut_width = donutWidth;
+      } 
       chart.flush();
     }
   }

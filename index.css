@@ -95,7 +95,7 @@ height: 85px;
 
 #above-secrest {
 position: relative;
-left: -83px;
+left: 66px;
 top: 210px;
 z-index: 2;
 background-color: #F0ECE9; 
@@ -103,7 +103,7 @@ background-color: #F0ECE9;
 
 #above-carson {
 position: relative;
-left: -160px;
+left: -10px;
 top: 98px;
 z-index: 4;
 background-color: #F0ECE9; 
@@ -111,8 +111,9 @@ background-color: #F0ECE9;
 
 #above-science {
 position: relative;
-left: -120px;
+left: 20px;
 top: 210px;
+
 z-index: 2;
 display: none;
 background-color: #241C1C; 
@@ -120,7 +121,7 @@ background-color: #241C1C;
 
 #above-computer {
 position: relative;
-left: -195px;
+left: 5px;
 top: 98px;
 z-index: 4;
 display: none;
@@ -128,14 +129,14 @@ background-color: #241C1C;
 }
 
 .text-box {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .text {
@@ -145,25 +146,25 @@ font-size: 60px;
 }
 
 #secrest {
-left: -84px;
+left: 66px;
 top: 130px;
 z-index: 1;
 }
 
 #science {
-left: -120px;
+left: 100px;
 top: 130px;
 z-index: 1;
 }
 
 #carson {
-left: -160px;
+left: -10px;
 top: 18px;
 z-index: 3;
 }
 
 #computer {
-left: -195px;
+left: 25px;
 top: 18px;
 z-index: 3;
 }
@@ -591,15 +592,19 @@ transform: translateX(-100vw);
 * Availability: https://codepen.io/uenify/pen/KxzKVd
 *******************************************************/
 
+.achievement-unlocked {
+    display: block;
+}
+
 .achievement *{
     box-sizing: border-box;
 }
 
 .achievement {
-pointer-events: none;
-width: 100%;
-top: 0px;
-z-index: 100;
+    pointer-events: none;
+    width: 100%;
+    top: 0px;
+    z-index: 100;
 }
 
 .achievement .animation {
@@ -1112,6 +1117,15 @@ animation: brilliant 7.4s steps(147) 2s;
 }
 }
 
+@media (max-width: 750px) {
+    .achievement-unlocked {
+        display: none;
+    }
+    .top-container {
+        display: hidden;
+    }
+}
+
 /*******************************************************
 * End of Xbox One Achievement in CSS (Regular and Rare)
 *******************************************************/
@@ -1156,6 +1170,16 @@ animation: brilliant 7.4s steps(147) 2s;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 10vw;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .github-image {
+        display: none;
+    }
+    .projects-container {
+        flex-direction: column;
+    }
 }
 
 .project {
@@ -1244,6 +1268,15 @@ animation: brilliant 7.4s steps(147) 2s;
     max-width: 500px;
     object-fit: cover;
     border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+    .education-header {
+        font-size: 38px;
+    }
+    .projects-header {
+        font-size: 38px;
+    }
 }
 
 @media (max-width: 768px) {
