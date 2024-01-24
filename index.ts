@@ -320,14 +320,14 @@ project_1_image.addEventListener("mouseover", () => {
   project_1_image.style.animation = 'project-scale-up 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
   projects.forEach(p => p.classList.remove('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.remove('fade-to-brown'));
-  projects.forEach(p => p.classList.add('fade-to-grey'));
-  backgroundElements.forEach(el => el.classList.add('fade-to-grey'));
+  projects.forEach(p => p.classList.add('fade-to-white'));
+  backgroundElements.forEach(el => el.classList.add('fade-to-white'));
 });
 
 project_1_image.addEventListener("mouseout", () => {
   project_1_image.style.animation = 'project-scale-down 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
-  projects.forEach(p => p.classList.remove('fade-to-grey'));
-  backgroundElements.forEach(el => el.classList.remove('fade-to-grey'));
+  projects.forEach(p => p.classList.remove('fade-to-white'));
+  backgroundElements.forEach(el => el.classList.remove('fade-to-white'));
   projects.forEach(p => p.classList.add('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.add('fade-to-brown'));
   
@@ -337,15 +337,15 @@ project_2_image.addEventListener("mouseover", () => {
   project_2_image.style.animation = 'project-scale-up 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
   projects.forEach(p => p.classList.remove('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.remove('fade-to-brown'));
-  projects.forEach(p => p.classList.add('fade-to-white'));
-  backgroundElements.forEach(el => el.classList.add('fade-to-white'));
+  projects.forEach(p => p.classList.add('fade-to-red'));
+  backgroundElements.forEach(el => el.classList.add('fade-to-red'));
   
 });
 
 project_2_image.addEventListener("mouseout", () => {
   project_2_image.style.animation = 'project-scale-down 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
-  projects.forEach(p => p.classList.remove('fade-to-white'));
-  backgroundElements.forEach(el => el.classList.remove('fade-to-white'));
+  projects.forEach(p => p.classList.remove('fade-to-red'));
+  backgroundElements.forEach(el => el.classList.remove('fade-to-red'));
   projects.forEach(p => p.classList.add('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.add('fade-to-brown'));
 });
@@ -354,15 +354,15 @@ project_3_image.addEventListener("mouseover", () => {
   project_3_image.style.animation = 'project-scale-up 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
   projects.forEach(p => p.classList.remove('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.remove('fade-to-brown'));
-  projects.forEach(p => p.classList.add('fade-to-red'));
-  backgroundElements.forEach(el => el.classList.add('fade-to-red'));
+  projects.forEach(p => p.classList.add('fade-to-green'));
+  backgroundElements.forEach(el => el.classList.add('fade-to-green'));
   
 });
 
 project_3_image.addEventListener("mouseout", () => {
   project_3_image.style.animation = 'project-scale-down 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards';
-  projects.forEach(p => p.classList.remove('fade-to-red'));
-  backgroundElements.forEach(el => el.classList.remove('fade-to-red'));
+  projects.forEach(p => p.classList.remove('fade-to-green'));
+  backgroundElements.forEach(el => el.classList.remove('fade-to-green'));
   projects.forEach(p => p.classList.add('fade-to-brown'));
   backgroundElements.forEach(el => el.classList.add('fade-to-brown'));
 });
